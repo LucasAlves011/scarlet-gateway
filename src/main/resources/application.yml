@@ -1,0 +1,29 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: gateway
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+      routes:
+        - id: estoque
+          uri: lb://estoque
+          predicates:
+            - Path=/produto/**, /categoria/**, /item/**
+        - id: vendas
+          uri: lb://vendas
+          predicates:
+            - Path=/**
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    defaultZone: http://localhost:8761/eureka
+
+#logging:
+#  level:
+#    org.springframework.cloud.gateway: TRACE
