@@ -14,10 +14,10 @@ spring:
           uri: lb://estoque
           predicates:
             - Path=/produto/**, /categoria/**, /item/**
-        - id: vendas
-          uri: lb://vendas
+        - id: venda
+          uri: lb://venda
           predicates:
-            - Path=/**
+            - Path=/venda/**
 eureka:
   client:
     fetch-registry: true
