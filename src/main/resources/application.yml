@@ -13,11 +13,11 @@ spring:
         - id: estoque
           uri: lb://estoque
           predicates:
-            - Path=/produto/**, /categoria/**, /item/**
+            - Path=/produto/**, /categoria/**, /item/**, /io
         - id: venda
           uri: lb://venda
           predicates:
-            - Path=/venda/**
+            - Path=/venda/** , /**
 eureka:
   client:
     fetch-registry: true
@@ -27,3 +27,5 @@ eureka:
 #logging:
 #  level:
 #    org.springframework.cloud.gateway: TRACE
+#    org.springframework.web.cors: DEBUG
+#    org.springframework.web.servlet.DispatcherServlet: DEBUG
