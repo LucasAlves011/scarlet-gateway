@@ -18,6 +18,21 @@ spring:
           uri: lb://venda
           predicates:
             - Path=/venda/** , /**
+      globalcors:
+        add-to-simple-url-handler-mapping: true
+        cors-configurations:
+          '[/**]':
+            allowedOrigins: http://localhost:3000
+#              - "http://localhost:8080"
+            allowedMethods:
+              - "GET"
+              - "POST"
+              - "PUT"
+              - "DELETE"
+              - "OPTIONS"
+            allowedHeaders: '*'
+            allowCredentials: true
+            maxAge: 3600
 eureka:
   client:
     fetch-registry: true
