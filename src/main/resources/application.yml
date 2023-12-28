@@ -1,5 +1,5 @@
 server:
-  port: 8080
+  port: 9091
 spring:
   application:
     name: gateway
@@ -23,7 +23,7 @@ spring:
         cors-configurations:
           '[/**]':
             allowedOrigins: http://localhost:3000
-#              - "http://localhost:8080"
+#              - "http://localhost:9091"
             allowedMethods:
               - "GET"
               - "POST"
